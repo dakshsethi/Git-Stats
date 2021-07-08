@@ -1,3 +1,17 @@
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+:root {
+  --input-border: #8b8a8b;
+  --input-focus-h: 245;
+  --input-focus-s: 100%;
+  --input-focus-l: 42%;
+}
+
 #root {
   min-height: 100vh;
   height: -webkit-fit-content;
@@ -37,7 +51,28 @@
 
 .main__login .details {
   margin-top: 2em;
-  padding: 0 1em;
+  padding: 0 0.5em;
   font-size: 20px;
+  font-family: Questrial, sans-serif;
+}
+
+.main__login .details .pat {
+  margin-top: 0.4em;
+  width: 100%;
+  font-size: 16px;
+  font-family: inherit;
+  padding: 0.25em 0.5em;
+  background-color: #fff;
+  border: 2px solid var(--input-border);
+  border-radius: 4px;
+}
+
+.main__login .details .login__btn {
+  width: 100%;
+  background-color: #6cc644;
+  border-radius: 0;
+  font-weight: bold;
+  font-family: Questrial, sans-serif;
+  margin-top: 1em;
 }
 /*# sourceMappingURL=App.css.map */
