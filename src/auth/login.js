@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect, useHistory } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 
-export default function login() {
-
+export default function Login() {
+    const history = useHistory();
     function validatePAT() {
         let pat = document.querySelector('#pat').value;
         if(pat !== '') {
@@ -12,6 +12,7 @@ export default function login() {
                 if (typeof(Storage) !== "undefined") {
                     // Store
                     localStorage.setItem("personal-access-token", pat);
+                    history.push("/profile");
                     // Retrieve
                     // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
                 } else {
@@ -29,6 +30,8 @@ export default function login() {
                 <span style={{color: 'red'}}>*</span>
                 <br />
                 <input type="text" className="pat" id="pat" required />
+                <br />
+                {/* {loggenIn} */}
                 
 
                 <Button className="login__btn" onClick={validatePAT}>
