@@ -1,10 +1,13 @@
 import React from 'react'
-import { Link, Redirect, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 
 export default function Login() {
     const history = useHistory();
-    function validatePAT() {
+
+    function validate(e) {
+        e.preventDefault();
+
         let pat = document.querySelector('#pat').value;
         if(pat !== '') {
             let checkPAT = new RegExp('^[0-9a-zA-Z_]{40}$');
@@ -13,8 +16,6 @@ export default function Login() {
                     // Store
                     localStorage.setItem("personal-access-token", pat);
                     history.push("/profile");
-                    // Retrieve
-                    // document.getElementById("result").innerHTML = localStorage.getItem("lastname");
                 } else {
                     alert("Sorry, your browser does not support Web Storage...");
                 }
@@ -25,19 +26,16 @@ export default function Login() {
     return (
         <div className="main__login">
             <img className="logo" src="img/GitHub-logo.png" alt="GitHub Logo"></img>
-            <form className="details">
-                <label>Personal Access Token</label>
-                <span style={{color: 'red'}}>*</span>
-                <br />
-                <input type="text" className="pat" id="pat" required />
-                <br />
-                {/* {loggenIn} */}
-                
-
-                <Button className="login__btn" onClick={validatePAT}>
+            <form className="details" onSubmit={validate}>
+                <div class="form__group field">
+                    <input type="text" autoComplete="off" class="form__field" placeholder="Personal Access Token" name="pat" id='pat' required />
+                    <label for="pat" class="form__label">Personal Access Token</label>
+                </div>
+                <Button type="submit" className="login__btn">
                     authorize
                 </Button>
             </form>
+            
         </div>
     )
 }

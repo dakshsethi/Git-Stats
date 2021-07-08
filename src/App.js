@@ -1,17 +1,34 @@
 import './App.css';
-import { BrowserRouter as Router, Switch } from "react-router-dom";
+// import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Login from './auth/Login';
+import Profile from './pages/Profile';
+import { Router, Route, Switch } from "react-router-dom";
+import { createBrowserHistory } from "history";
+
+const history = createBrowserHistory();
 
 export default function App() {
   // let loggedIn = localStorage.getItem('personal-access-token');
   return (
-    <Router>
+    // <Router>
+    //   <Switch>
+    //       <Router exact path="/">
+    //         <Login />
+    //       </Router>
+    //       <Router exact path="/profile">
+    //         <Profile />
+    //       </Router>
+    //     </Switch>
+    // </Router>
+
+  <Router history={history}>
+  <div>
       <Switch>
-          <Router exact path="/">
-            <Login />
-          </Router>
-        </Switch>
-    </Router>
+        <Route exact path="/" component={Login} />
+        <Route path="/profile" component={Profile} />
+      </Switch>
+  </div>
+  </Router>
   );
 }
 
