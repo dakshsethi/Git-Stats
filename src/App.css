@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,400i,700");
 *,
 *::before,
 *::after {
@@ -153,5 +154,179 @@
 .form__field:required, .form__field:invalid {
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+
+.card {
+  background-color: #fff;
+  width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow: hidden;
+  border-radius: 2rem;
+  -webkit-box-shadow: 0px 1rem 1.5rem black;
+          box-shadow: 0px 1rem 1.5rem black;
+}
+
+.card .banner {
+  /* background-image: url(https://images.unsplash.com/photo-1545703549-7bdb1d01b734?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ); */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* height: 11rem; */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /* align-items: flex-end; */
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* box-sizing: border-box; */
+  padding: 1em 0;
+}
+
+.card .banner img {
+  background-color: #fff;
+  width: 8rem;
+  height: 8rem;
+  -webkit-box-shadow: 0 0.5rem 1rem black;
+          box-shadow: 0 0.5rem 1rem black;
+  border-radius: 50%;
+  /* transform: translateY(50%); */
+  -webkit-transition: -webkit-transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: -webkit-transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28), -webkit-transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.card .banner img:hover {
+  -webkit-transform: translateY(50%) scale(1.3);
+          transform: translateY(50%) scale(1.3);
+}
+
+.card h2.name {
+  text-align: center;
+  padding: 0 2rem 0.5rem;
+  margin: 0;
+}
+
+.card .title {
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 0 2rem 1.2rem;
+}
+
+.card .actions {
+  padding: 0 2rem 1.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-ordinal-group: 100;
+      -ms-flex-order: 99;
+          order: 99;
+}
+
+.card .actions .follow-info {
+  padding: 0 0 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card .actions .follow-info h2 {
+  text-align: center;
+  width: 50%;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.card .actions .follow-info h2 a {
+  text-decoration: none;
+  padding: 0.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 0.8rem;
+  -webkit-transition: background-color 100ms ease-in-out;
+  transition: background-color 100ms ease-in-out;
+}
+
+.card .actions .follow-info h2 a span {
+  color: #1c9eff;
+  font-weight: bold;
+  -webkit-transform-origin: bottom;
+          transform-origin: bottom;
+  -webkit-transform: scaleY(1.3);
+          transform: scaleY(1.3);
+  -webkit-transition: color 100ms ease-in-out;
+  transition: color 100ms ease-in-out;
+}
+
+.card .actions .follow-info h2 a small {
+  color: #afafaf;
+  font-size: 0.85rem;
+  font-weight: normal;
+}
+
+.card .actions .follow-info h2 a:hover {
+  background-color: #f2f2f2;
+}
+
+.card .actions .follow-info h2 a:hover span {
+  color: #007ad6;
+}
+
+.card .actions .follow-btn button {
+  color: inherit;
+  font: inherit;
+  font-weight: bold;
+  background-color: #ffd01a;
+  width: 100%;
+  border: none;
+  padding: 1rem;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-radius: 1.5rem/50%;
+  -webkit-transition: background-color 100ms ease-in-out, -webkit-transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: background-color 100ms ease-in-out, -webkit-transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: background-color 100ms ease-in-out, transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: background-color 100ms ease-in-out, transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28), -webkit-transform 200ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.card .actions .follow-btn button:hover {
+  background-color: #efb10a;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.card .actions .follow-btn button:active {
+  background-color: #e8a200;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.card .desc {
+  text-align: justify;
+  padding: 0 2rem 2.5rem;
+  -webkit-box-ordinal-group: 101;
+      -ms-flex-order: 100;
+          order: 100;
 }
 /*# sourceMappingURL=App.css.map */
