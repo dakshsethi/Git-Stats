@@ -22,6 +22,7 @@
 *.css.map
 *.sass.map
 *.scss.map
+*.scss
 
 
 npm-debug.log*
