@@ -2,13 +2,13 @@ import './App.css';
 // import { BrowserRouter as Router, Switch } from "react-router-dom";
 import Login from './auth/Login';
 import Profile from './pages/Profile';
+import Followers from './pages/Followers';
 import { Router, Route, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 const history = createBrowserHistory();
 
 export default function App() {
-  // let loggedIn = localStorage.getItem('personal-access-token');
   return (
     // <Router>
     //   <Switch>
@@ -26,6 +26,7 @@ export default function App() {
       <Switch>
         <Route exact path="/" component={Login} />
         <Route path="/profile" component={Profile} />
+        <Route path="/followers" component={Followers} />
       </Switch>
   </div>
   </Router>

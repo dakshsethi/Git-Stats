@@ -1,17 +1,17 @@
 import React from 'react'
-import ProfileCard from './ProfileCard';
+import FollowerCard from './FollowerCard'
 
 export default class Profile extends React.Component  {
 
     state = {
         loading: true,
         personal_access_token: localStorage.getItem('personal-access-token'),
-        profile: null
+        followers: null
     }
 
     async componentDidMount() {
-        document.title = 'Profile Page';
-        const url = "https://api.github.com/user";
+        document.title = 'Followers List';
+        const url = "https://api.github.com/user/followers";
         const auth = "token " + this.state.personal_access_token;
         const response = await fetch(url, {
               headers: {
@@ -20,23 +20,19 @@ export default class Profile extends React.Component  {
             }
         )
         const data = await response.json();
-        console.log(data);
         this.setState({ loading: false });
-        this.setState({ profile: data });
-        console.log(this.state.profile.login);
+        this.setState({ followers: data });
     }
 
     render () {
         return (
             <div>
-                {this.state.loading || !this.state.profile ? ( 
+                {this.state.loading || !this.state.followers ? ( 
                     <div>
-                        Loading....
+                        Loading Followers....
                     </div> 
-                ) : ( 
-                    <div>
-                        <ProfileCard profile={this.state.profile} />
-                    </div>
+                ) : (
+                    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>{ this.state.followers.map((o, i) => <FollowerCard follower={o} key={i}/> )}</div>
                 )}
             </div>
         )
