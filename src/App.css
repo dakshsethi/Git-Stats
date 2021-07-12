@@ -292,6 +292,11 @@
   color: #007ad6;
 }
 
+a.follow-btn {
+  text-decoration: none;
+  color: inherit;
+}
+
 .card .actions .follow-btn button {
   color: inherit;
   font: inherit;

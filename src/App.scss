@@ -281,6 +281,12 @@ $gray: #9b9b9b;
 .card .actions .follow-info h2 a:hover span {
   color: #007ad6;
 }
+
+a.follow-btn {
+  text-decoration: none;
+  color: inherit;
+}
+
 .card .actions .follow-btn button {
   color: inherit;
   font: inherit;
