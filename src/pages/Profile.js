@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import ProfileCard from './ProfileCard';
 
 export default class Profile extends React.Component  {
 
     state = {
         loading: true,
         personal_access_token: localStorage.getItem('personal-access-token'),
-        person: null
+        profile: null
     }
 
     async componentDidMount() {
@@ -20,19 +21,26 @@ export default class Profile extends React.Component  {
         )
         const data = await response.json();
         console.log(data);
+        this.setState({ loading: false });
         this.setState({ profile: data });
+        console.log(this.state.profile.login);
+    
+    
     }
 
     render () {
         return (
             <div>
-                {this.state.loading || !this.state.person ? ( 
+                {this.state.loading || !this.state.profile ? ( 
                     <div>
-                        {this.state.personal_access_token}
+                        Loading....
+                        {/* <ProfileCard message="hi" profile={this.state.profile} /> */}
+                        {/* {console.log(this.state.profile.login)} */}
+                        {/* {this.state.profile.toString()} */}
                     </div> 
                 ) : ( 
                     <div>
-                        Nope
+                        <ProfileCard message="hi" profile={this.state.profile} />
                     </div>
                 )}
             </div>
