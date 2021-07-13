@@ -1,17 +1,17 @@
 import React from 'react'
 import UserCard from './UserCard'
 
-export default class Follower extends React.Component  {
+export default class Following extends React.Component  {
 
     state = {
         loading: true,
         personal_access_token: localStorage.getItem('personal-access-token'),
-        followers: null
+        following: null
     }
 
     async componentDidMount() {
         document.title = 'Followers List';
-        const url = "https://api.github.com/user/followers";
+        const url = "https://api.github.com/user/following";
         const auth = "token " + this.state.personal_access_token;
         const response = await fetch(url, {
               headers: {
@@ -21,18 +21,18 @@ export default class Follower extends React.Component  {
         )
         const data = await response.json();
         this.setState({ loading: false });
-        this.setState({ followers: data });
+        this.setState({ following: data });
     }
 
     render () {
         return (
             <div>
-                {this.state.loading || !this.state.followers ? ( 
+                {this.state.loading || !this.state.following ? ( 
                     <div>
-                        Loading Followers....
+                        Loading Following....
                     </div> 
                 ) : (
-                    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>{ this.state.followers.map((o, i) => <UserCard user={o} key={i}/> )}</div>
+                    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>{ this.state.following.map((o, i) => <UserCard user={o} key={i}/> )}</div>
                 )}
             </div>
         )

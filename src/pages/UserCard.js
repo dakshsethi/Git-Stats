@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class Profile extends React.Component  {
+export default class UserCard extends React.Component  {
 
     state = {
         loading: true,
@@ -8,10 +8,9 @@ export default class Profile extends React.Component  {
     }
 
     async componentDidMount() {
-        const url = this.props.follower.url;
+        const url = this.props.user.url;
         const response = await fetch(url)
         const data = await response.json();
-        console.log(data);
         this.setState({ loading: false });
         this.setState({ profile: data });
     }
@@ -26,11 +25,11 @@ export default class Profile extends React.Component  {
                 ) : (
                     <div className="follower-card"> 
                         <div className="banner left">
-                            <img src={this.props.follower.avatar_url} className="profile_photo" />
+                            <img src={this.props.user.avatar_url} alt="GitHub Profile" className="profile_photo" />
                         </div>
                         <div className="banner right">
                             <div className="name">{this.state.profile.name}</div>
-                            <span><small>@{this.props.follower.login}</small></span>
+                            <span><small>@{this.props.user.login}</small></span>
                             <div className="title">
                                 {this.state.profile.bio}
                             </div>

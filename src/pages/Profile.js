@@ -20,10 +20,8 @@ export default class Profile extends React.Component  {
             }
         )
         const data = await response.json();
-        console.log(data);
         this.setState({ loading: false });
         this.setState({ profile: data });
-        console.log(this.state.profile.login);
     }
 
     render () {
@@ -31,7 +29,7 @@ export default class Profile extends React.Component  {
             <div>
                 {this.state.loading || !this.state.profile ? ( 
                     <div>
-                        Loading....
+                        Loading Profile....
                     </div> 
                 ) : ( 
                     <div>

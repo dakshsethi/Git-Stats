@@ -5,7 +5,7 @@ const ProfileCard = (props) => {
         <div>    
             <div className="card">
                 <div className="banner">
-                    <img src={props.profile.avatar_url} className="profile_photo" />
+                    <img src={props.profile.avatar_url} alt="GitHub Profile" className="profile_photo" />
                 </div>
                 <h2 className="name">{props.profile.name}</h2>
                 <div className="title">
